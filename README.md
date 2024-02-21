@@ -1,2 +1,2 @@
 # Blog-Post
-Blog Post application
+Blog Post application using DRF
