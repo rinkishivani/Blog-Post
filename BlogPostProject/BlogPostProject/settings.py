@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'BlogPostProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Blog Post',
+        'NAME': 'Blog',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': '127.0.0.1',
@@ -132,4 +132,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'blog.Author'
+AUTH_USER_MODEL = 'blog.User'

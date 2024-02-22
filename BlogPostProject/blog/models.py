@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
-class Author(AbstractUser):
+class User(AbstractUser):
     """ model for user details """
 
     first_name = models.CharField(max_length=25)
@@ -20,7 +20,7 @@ class Author(AbstractUser):
 class Post(models.Model):
     """ model for blog posts details """
 
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, null=True, blank=True)
     content = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -37,7 +37,7 @@ class Comment(models.Model):
     """ model for details of comments on a post """
 
     comment = models.TextField(null=True, blank=True)
-    commenter = models.ForeignKey(Author, on_delete=models.CASCADE)
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     commented_on = models.DateTimeField(auto_now_add=True)
 
@@ -51,7 +51,7 @@ class Comment(models.Model):
 class Like(models.Model):
     """ model for details of likes on a post """
 
-    liked_by = models.ForeignKey(Author, on_delete=models.CASCADE)
+    liked_by = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     liked_at = models.DateTimeField(auto_now_add=True)
 

@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Author, Post, Comment, Like
+from .models import User, Post, Comment, Like
 
 
-@admin.register(Author)
-class Author(admin.ModelAdmin):
+@admin.register(User)
+class User(admin.ModelAdmin):
     list_display = ('contact', 'created_at')
 
 
